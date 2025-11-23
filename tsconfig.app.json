@@ -1,0 +1,30 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": ["vite/client"],
+
+    /* --- 重要補強：避免 template ref 推論成 undefined --- */
+    "strict": true,
+    "exactOptionalPropertyTypes": false,
+    "strictNullChecks": false,
+
+    /* --- Volar 官方建議的編譯設定 (避免 ref 類型失真) --- */
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+
+    /* --- 你原本的 lint 規則 --- */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+}
+
